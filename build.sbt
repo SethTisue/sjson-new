@@ -63,7 +63,6 @@ lazy val supportSpray = support("spray").
 
 lazy val supportScalaJson = support("scalajson")
   .dependsOn(shadedJawnParser)
-  .disablePlugins(JarjarAbramsPlugin)
   .settings(
     libraryDependencies += scalaJson,
     mimaBinaryIssueFilters ++= Seq(
@@ -88,11 +87,10 @@ lazy val supportMsgpack = support("msgpack")
 lazy val supportMurmurhash = support("murmurhash")
 
 lazy val shadedJawnParser = (project in file("shaded-jawn-parser"))
-  .enablePlugins(JarjarAbramsPlugin)
   .settings(
     name := "shaded-jawn-parser",
-    jarjarLibraryDependency := "org.typelevel" %% "jawn-parser" % "1.0.0",
-    jarjarShadeRules += ShadeRuleBuilder.moveUnder("org.typelevel", "sjsonnew.shaded"),
+    //jarjarLibraryDependency := "org.typelevel" %% "jawn-parser" % "1.0.0",
+    //jarjarShadeRules += ShadeRuleBuilder.moveUnder("org.typelevel", "sjsonnew.shaded"),
   )
 
 lazy val benchmark = (project in file("benchmark"))
