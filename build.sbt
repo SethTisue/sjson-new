@@ -63,6 +63,7 @@ lazy val supportSpray = support("spray").
 
 lazy val supportScalaJson = support("scalajson")
   .dependsOn(shadedJawnParser)
+  .disablePlugins(JarjarAbramsPlugin)
   .settings(
     libraryDependencies += scalaJson,
     mimaBinaryIssueFilters ++= Seq(
